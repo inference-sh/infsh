@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "infsh"
+version = "0.1.0"
+description = "inference.sh CLI"
+readme = "README.md"
+license = {text = "Proprietary"}
+authors = [
+    {name = "Inference Shell Inc.", email = "hello@inference.sh"},
+]
+dependencies = [
+    "requests>=2.25.1",
+    "click>=8.0.0",
+    "pydantic>=2.0.0",
+    "pyyaml>=5.4.1",
+]
+requires-python = ">=3.8"
+
+[project.scripts]
+infsh = "infsh.__main__:cli"
+
+[tool.pytest]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v"
+
+[tool.flake8]
+max-line-length = 100
+exclude = [".git", "__pycache__", "build", "dist"]
